@@ -11,10 +11,7 @@ Import-Module $ScriptDir\..\lib\Pester
 
 
 #all my koans, in the correct order
-$aboutDescriptions = { 
-	"AboutAsserts", 
-	"AboutStrings" 
-}
+$aboutDescriptions = @("AboutAsserts","AboutStrings")
 
 
 #run koans, results ordered by file name then by order within file
