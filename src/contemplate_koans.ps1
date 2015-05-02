@@ -22,14 +22,20 @@ $koanHash = $allKoans.TestResult | Group-Object -property Describe -AsHashTable
 
 #output results
 $firstFailedKoan = $koanHash["AboutAsserts"][0]
-Write-Host "Thinking $firstFailedKoan.Describe" -ForegroundColor Magenta
-Write-Host "    $firstFailedKoan.Name has damaged your karma." -ForegroundColor Red
+$about = $firstFailedKoan.Describe
+$koan = $firstFailedKoan.Name
+$failed = $firstFailedKoan.FailureMessage -split [Environment]::NewLine
+$stackTrace = $firstFailedKoan.StackTrace
+Write-Host "Thinking $about" -ForegroundColor Magenta
+Write-Host "    $koan has damaged your karma." -ForegroundColor Red
 Write-Host ""
 Write-Host "You have not yet reached enlightenment ..."
-Write-Host "    $firstFailedKoan.FailureMessage" -ForegroundColor Red   
+Foreach ($str in $failed) {
+Write-Host "    $str" -ForegroundColor Red 
+}  
 Write-Host ""
 Write-Host "Please meditate on the following code:"
-Write-Host "    $firstFailedKoan.StackTrace" -ForegroundColor Yellow
+Write-Host "    $stackTrace" -ForegroundColor Yellow
 Write-Host ""
 Write-Host ""
 Write-Host "Flat is better than nested." -ForegroundColor Cyan
