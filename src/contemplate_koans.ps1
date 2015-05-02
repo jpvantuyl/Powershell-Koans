@@ -13,6 +13,9 @@ Import-Module $ScriptDir\..\lib\Pester
 #all my koans, in the correct order
 $aboutDescriptions = @("AboutAsserts","AboutStrings")
 
+#helpful defaults
+$__FILL_ME_IN__ = "FILL ME IN"
+
 
 #run koans, results ordered by file name then by order within file
 $allKoans = Invoke-Pester -PassThru -Quiet
@@ -21,23 +24,41 @@ $koanHash = $allKoans.TestResult | Group-Object -property Describe -AsHashTable
 
 
 #output results
-$firstFailedKoan = $koanHash["AboutAsserts"][0]
-$about = $firstFailedKoan.Describe
-$koan = $firstFailedKoan.Name
-$failed = $firstFailedKoan.FailureMessage
-$stackTrace = $firstFailedKoan.StackTrace
-Write-Host "Thinking $about" -ForegroundColor Magenta
-Write-Host "    $koan has damaged your karma." -ForegroundColor Red
-Write-Host ""
-Write-Host "You have not yet reached enlightenment ..."
-Foreach ($str in $failed -split "\n") {
-Write-Host "    $str" -ForegroundColor Red 
-}  
-Write-Host ""
-Write-Host "Please meditate on the following code:"
-Foreach ($str in $stackTrace -split "\n") {
-Write-Host "    $str" -ForegroundColor Yellow
+$about = ""
+$karma = $true
+$i = 0
+While ($karma) {
+	$koan = $allKoans.TestResult[$i]
+	
+	if ($about -ne $koan.Describe) {
+		$about = $koan.Describe
+		Write-Host "Thinking $about" -ForegroundColor Magenta
+	}
+	
+	$name = $koan.Name
+	
+	if ($koan.Passed) {
+		Write-Host "    $name was good." -ForegroundColor Green
+	} else {
+		$failed = $koan.FailureMessage
+		$stackTrace = $koan.StackTrace
+		
+		Write-Host "    $name has damaged your karma." -ForegroundColor Red
+		Write-Host ""
+		Write-Host "You have not yet reached enlightenment ..."
+		Foreach ($str in $failed -split "\n") {
+			Write-Host "    $str" -ForegroundColor Red 
+		}  
+		Write-Host ""
+		Write-Host "Please meditate on the following code:"
+		Foreach ($str in $stackTrace -split "\n") {
+			Write-Host "    $str" -ForegroundColor Yellow
+		}
+		Write-Host ""
+		Write-Host ""
+	}
+	
+	$i += 1
+	$karma = $koan.Passed -and $i -lt $allKoans.TestResult.Length
 }
-Write-Host ""
-Write-Host ""
 Write-Host "Flat is better than nested." -ForegroundColor Cyan
