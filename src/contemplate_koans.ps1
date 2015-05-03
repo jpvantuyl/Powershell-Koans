@@ -38,7 +38,7 @@ While ($karma) {
 	$name = $koan.Name
 	
 	if ($koan.Passed) {
-		Write-Host "    $name was good." -ForegroundColor Green
+		Write-Host "    $name has expanded your awareness." -ForegroundColor Green
 	} else {
 		$failed = $koan.FailureMessage
 		$stackTrace = $koan.StackTrace
