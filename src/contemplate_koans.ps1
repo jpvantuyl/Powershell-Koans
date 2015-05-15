@@ -1,4 +1,4 @@
-﻿#
+#
 # Acknowledgment:
 #
 # Powershell Koans is a port of Python Koans which is a port of Ruby Koans originally written by Jim Weirich

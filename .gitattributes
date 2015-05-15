@@ -15,3 +15,9 @@
 *.PDF	 diff=astextplain
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
+*.ps1	 diff=astextplain
+*.PS1	 diff=astextplain
+*.psm1	 diff=astextplain
+*.PSM1	 diff=astextplain
+*.psd1	 diff=astextplain
+*.PSD1	 diff=astextplain
