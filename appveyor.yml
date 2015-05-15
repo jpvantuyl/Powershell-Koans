@@ -14,15 +14,6 @@ install:
 
 build: false
 
-notifications:
-- provider: Email
-  to:
-  - jpvantuyl@gmail.com
-  subject: 'AppVeyor: Powershell-Koans'
-  on_build_success: true
-  on_build_failure: true
-  on_build_status_changed: false
-
 test_script:
 # Test with native PS version
   - ps: . .\src\appveyor.pester.ps1
