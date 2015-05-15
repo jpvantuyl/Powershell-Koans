@@ -12,8 +12,8 @@ build: false
 
 test_script:
 # Test with native PS version
-  - ps: . .\build\appveyor.pester.ps1
+  - ps: . .\src\appveyor.pester.ps1
 # Test with PS version 2
   - ps: powershell.exe -version 2.0 -executionpolicy bypass -noprofile -file .\build\appveyor.pester.ps1
 # Finalize pass - collect and upload results
-  - ps: . .\build\appveyor.pester.ps1 -Finalize
+  - ps: . .\src\appveyor.pester.ps1 -Finalize
