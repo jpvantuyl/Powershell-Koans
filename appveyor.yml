@@ -12,6 +12,10 @@ skip_commits:
 
 build: false
 
+install:
+  - cinst pester
+
+
 test_script:
 # Test with native PS version
   - ps: . .\src\appveyor.pester.ps1
