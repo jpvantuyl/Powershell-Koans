@@ -27,6 +27,7 @@ Describe "AboutStrings" {
 	}
 	
 	It "should span mutliple lines" {
+		#credit: https://ashakibo.wordpress.com/2015/02/14/apple-pie-haiku/
 		$phrase = 
 @'
 I like apple pie,
