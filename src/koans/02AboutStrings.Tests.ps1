@@ -37,8 +37,24 @@ I do not have one...
 		$phrase.Length | Should Be 68
 	}
 	
+	It "should interpolate double quoted string" {
+		$fruit = "apple"
+		"$fruit pie" | Should Be "apple pie"
+	}
+	
+	It "should not interpolate single quoted string" {
+		$fruit = "apple"
+		'$fruit pie' | Should Be '$fruit pie'
+	}
+	
 	It "should concatenate" {
 		"apple" + " " + "pie" | Should Be "apple pie"
+	}
+	
+	It "should append" {
+		$phrase = "apple"
+		$phrase += " pie"
+		$phrase | Should Be "apple pie"
 	}
 	
 	It "should be composed of characters" {
