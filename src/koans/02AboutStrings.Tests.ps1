@@ -1,10 +1,10 @@
 Describe "AboutStrings" {
 	It "should allow double quotes" {
-		"apple pie.".GetType().ToString() | Should Be "system.string"
+		"apple pie".GetTypeCode() | Should Be string
 	}
 	
 	It "should allow single quotes" {
-		'apple pie.'.GetType().ToString() | Should Be "system.string"
+		'apple pie'.GetTypeCode() | Should Be string
 	}
 	
 	It "should treat both as equal" {
@@ -34,7 +34,7 @@ I like apple pie,
 and I cannot lie; but wait,
 I do not have one...
 '@
-		$phrase.Length | Should Be 68
+		$phrase.Split("`n").Count | Should Be 3
 	}
 	
 	It "should interpolate double quoted string" {
@@ -67,5 +67,13 @@ I do not have one...
 	
 	It "should split" {
 		"mmmmmmmmmmmm, apple pie".Split(", ")[0] | Should Be "mmmmmmmmmmmm"
+	}
+
+	It "should be case insensitive" {
+		"apple PIE" -eq "APPLE pie" | Should Be $true
+	}
+
+	It "should be case sensitive using the .Equals() method" {
+		"apple PIE".Equals("APPLE pie") | Should Be $false
 	}
 }
