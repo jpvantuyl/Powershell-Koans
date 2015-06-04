@@ -6,7 +6,7 @@ Describe "AboutAsserts" {
 	
 	It "should fill in values" {
 		# Sometimes we will ask you to fill in the values
-		2 | Should Be (1 + 1)
+		(1 + 1) | Should Be 2
 	}
 	
 	It "should assert one's expectations" {
