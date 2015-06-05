@@ -42,9 +42,4 @@ Describe "AboutArrays" {
         $array = @(1, 2, 3) + @(4, 5, 6)
 		"$array" | Should Be "1 2 3 4 5 6"
 	}
-
-	It "should assign an array as a List" {
-        [System.Collections.List[string]]$list = @("I", "can", "haz", "list")
-		"$list" | Should Be "I can haz list"
-	}
 }
