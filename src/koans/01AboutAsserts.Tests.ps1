@@ -1,3 +1,4 @@
+#See Get-Help about_Pester
 Describe "AboutAsserts" {
 	It "should expect true" {
 		# We shall contemplate truth by testing reality, via asserts.
