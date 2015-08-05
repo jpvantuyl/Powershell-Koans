@@ -1,3 +1,4 @@
+#see Get-Help about_Comparison_Operators
 Describe "AboutEquality" {
 	It "should assert equality with the -eq operator" {
 		$true -eq $true | Should Be $true
