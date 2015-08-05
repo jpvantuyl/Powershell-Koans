@@ -1,3 +1,4 @@
+#See Get-Help about_Quoting_Rules
 Describe "AboutStrings" {
 	It "should allow double quotes" {
 		"apple pie".GetTypeCode() | Should Be string
@@ -67,6 +68,10 @@ I do not have one...
 	
 	It "should split" {
 		"mmmmmmmmmmmm, apple pie".Split(", ")[0] | Should Be "mmmmmmmmmmmm"
+	}
+	
+	It "should join" {
+		"mmmmmmmmmmmm,", "apple", "pie" -Join " " | Should Be "mmmmmmmmmmmm, apple pie"
 	}
 
 	It "should be case insensitive" {
