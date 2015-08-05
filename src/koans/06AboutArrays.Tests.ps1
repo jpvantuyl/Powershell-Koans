@@ -1,6 +1,12 @@
+#See Get-Help about_Arrays
 Describe "AboutArrays" {
 	It "should support Arrays of objects" {
         $array = @(1, 2, 3)
+		$array.GetType() | Should Be System.Object[]
+	}
+	
+	It "should allow for more implicit initializiation" {
+        $array = 5, 2, 'one way', "or another"
 		$array.GetType() | Should Be System.Object[]
 	}
 
@@ -22,6 +28,11 @@ Describe "AboutArrays" {
 	It "should access items by index" {
         $array = @(1, 2, 3)
 		$array[1] | Should Be 2
+	}
+
+	It "should access items by negative index" {
+        $array = @(1, 2, 3)
+		$array[-1] | Should Be 3
 	}
 
 	It "should mutate the array's state" {
