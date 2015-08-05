@@ -3,11 +3,19 @@ Describe "AboutArrays" {
 	It "should support Arrays of objects" {
         $array = @(1, 2, 3)
 		$array.GetType() | Should Be System.Object[]
+		$array.Count | Should Be 3
 	}
 	
 	It "should allow for more implicit initializiation" {
         $array = 5, 2, 'one way', "or another"
 		$array.GetType() | Should Be System.Object[]
+		$array.Count | Should Be 4
+	}
+	
+	It "should allow initializiation from ranges" {
+        $array = 2..6
+		$array.GetType() | Should Be System.Object[]
+		$array.Count | Should Be 5
 	}
 
 	It "should support Arrays of specific types" {
@@ -39,6 +47,12 @@ Describe "AboutArrays" {
         $array = @(1, 2, 3)
         $array[2] = 4
 		"$array" | Should Be "1 2 4"
+	}
+
+	It "should add array elements" {
+        $array = @(1, 2, 3)
+        $array += 4
+		"$array" | Should Be "1 2 3 4"
 	}
 
 	It "should accomodate all types of object" {
