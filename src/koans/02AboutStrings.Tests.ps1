@@ -1,4 +1,5 @@
 #See Get-Help about_Quoting_Rules
+#See Get-Help about_Split
 Describe "AboutStrings" {
 	It "should allow double quotes" {
 		"apple pie".GetTypeCode() | Should Be string
