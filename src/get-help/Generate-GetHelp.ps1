@@ -1,0 +1,1 @@
+get-help about* | foreach{ $name = $_.name; get-help $name | out-file "$name.txt" -force }
