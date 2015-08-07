@@ -4,7 +4,7 @@
 #see Get-Help about_While
 #see Get-Help about_Break
 #see Get-Help about_Continue
-Describe "AboutControlStatements" {
+Describe "AboutLoops" {
 	It "should support for statements" {	
 	}
 	It "should support foreach statements" {	
