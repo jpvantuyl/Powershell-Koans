@@ -5,14 +5,13 @@
 # and Joe O'brien of Edgecase.
 #
 	
+$ScriptDir = Split-Path -parent $MyInvocation.MyCommand.Path
+Push-Location $ScriptDir
 
-#clear the screen
-Invoke-Command -scriptblock {cls}
 Write-Host "Meditating...`n" -ForegroundColor Cyan
 
 #import dependencies
-$ScriptDir = Split-Path -parent $MyInvocation.MyCommand.Path
-Import-Module $ScriptDir\..\lib\Pester
+Import-Module .\..\lib\Pester
 
 
 #helpful defaults
@@ -20,7 +19,7 @@ $__FILL_ME_IN__ = "FILL ME IN"
 
 
 #run koans, results ordered by file name then by order within file
-$allKoans = Invoke-Pester -PassThru -Quiet -Script ./**/koans
+$allKoans = Invoke-Pester -PassThru -Quiet -Script ./koans
 
 
 #output results
@@ -63,3 +62,5 @@ Write-Host ""
 Write-Host ""
 Write-Host "Flat is better than nested." -ForegroundColor Cyan
 Write-Host ""
+
+Pop-Location
