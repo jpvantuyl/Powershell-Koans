@@ -20,14 +20,14 @@ Describe "AboutHashes" {
 	It "should change values" {
 		$hash = @{ 'one' = 'uno'; 'two' = 'dos' };
 		$hash['one'] = 'eins';
-		$hash['one'] | Should Be 'eins'; 
+		$hash['one'] | Should Be 'eins';
 	}
 	
 	It "should add values" {
 		$hash = @{ 'one' = 'uno'; 'two' = 'dos' };
 		$hash['three'] = 'tres';
 		$hash['three'] | Should Be 'tres';
-		$hash.Add('four'], 'quatro'); 
+		$hash.Add('four', 'quatro'); 
 		$hash['four'] | Should Be 'quatro'; 
 	}
 	
