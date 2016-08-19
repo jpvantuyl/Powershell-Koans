@@ -47,11 +47,4 @@ Describe "AboutHashes" {
 		$hash.Keys -Contains 'uno' | Should Be $false;
 		$hash.Values -Contains 'dos' | Should Be $true;
 	}
-	
-	It "should sometimes be ordered" {
-		$hash = @{ 'two' = 'dos'; 'one' = 'uno' };
-		$orderedhash = [ordered]@{ 'two' = 'dos'; 'one' = 'uno' };
-		$hash.Keys[0] | Should Be 'two';
-		$orderedhash.Keys[0] | Should Be 'one';
-	}
 }
