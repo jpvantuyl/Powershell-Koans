@@ -11,7 +11,8 @@ Push-Location $ScriptDir
 Write-Host "Meditating...`n" -ForegroundColor Cyan
 
 #import dependencies
-Import-Module .\..\lib\Pester
+#overwrite the Pester in \lib with the localy installed one if possible
+Import-Module .\..\lib\Pester, Pester
 
 
 #helpful defaults
