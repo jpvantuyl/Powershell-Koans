@@ -12,8 +12,8 @@ Describe "AboutAsserts" {
 	
 	It "should assert one's expectations" {
 		# Some ways of asserting equality are better than others
-		$expected = 2 #$__FILL_ME_IN__
+		$expected = 2
 		$actual = 1 + 1
-		$expected | Should Be $actual
+		$actual | Should Be $expected
 	}
 }
