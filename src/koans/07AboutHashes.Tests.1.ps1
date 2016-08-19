@@ -54,13 +54,4 @@ Describe "AboutHashes" {
 		$hash.Keys[0] | Should Be 'two';
 		$orderedhash.Keys[0] | Should Be 'one';
 	}
-	
-	It "can be constructed from a Here-String" {
-		$hash = ConvertFrom-StringData @"
-			one = uno
-			two = dos
-		"@
-		$hash.Keys[0] | Should Be 'one';
-		$hash.count | Should Be 2;
-	}
 }
