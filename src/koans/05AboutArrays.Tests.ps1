@@ -72,15 +72,15 @@ Describe "AboutArrays" {
         $array = @(1, 2, 3)
 		$message = "nothing to see here"
 		try { $array.Add(4) } catch { $message = $_ }
-		"$array" | Should Be $__FILL_ME_IN__
-		"$message" | Should Be $__FILL_ME_IN__
+		"$array" | Should Be "1 2 3"
+		$message | Should Be 'Exception calling "Add" with "1" argument(s): "Collection was of a fixed size."'
 	}
 
 	It "should allocate a new immutable array" {
         $array = @(1, 2, 3)
 		$message = "nothing to see here"
 		try { $array += 4 } catch { $message = $_ }
-		"$array" | Should Be $__FILL_ME_IN__
-		"$message" | Should Be $__FILL_ME_IN__
+		"$array" | Should Be "1 2 3 4"
+		$message | Should Be "nothing to see here"
 	}
 }
