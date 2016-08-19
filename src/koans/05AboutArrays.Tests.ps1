@@ -48,7 +48,7 @@ Describe "AboutArrays" {
 		$message = "nothing to see here"
 		try { $array.Add(4) } catch { $message = $_ }
 		"$array" | Should Be $__FILL_ME_IN__
-		"$message" | Should Be $__FILL_ME_IN__
+		$message | Should Be $__FILL_ME_IN__
 	}
 
 	It "should allocate a new immutable array" {
@@ -56,6 +56,6 @@ Describe "AboutArrays" {
 		$message = "nothing to see here"
 		try { $array += 4 } catch { $message = $_ }
 		"$array" | Should Be $__FILL_ME_IN__
-		"$message" | Should Be $__FILL_ME_IN__
+		$message | Should Be $__FILL_ME_IN__
 	}
 }
