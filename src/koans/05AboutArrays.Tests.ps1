@@ -42,4 +42,20 @@ Describe "AboutArrays" {
         $array = @(1, 2, 3) + @(4, 5, 6)
 		"$array" | Should Be $__FILL_ME_IN__
 	}
+
+	It "should not expand immutable arrays" {
+        $array = @(1, 2, 3)
+		$message = "nothing to see here"
+		try { $array.Add(4) } catch { $message = $_ }
+		"$array" | Should Be $__FILL_ME_IN__
+		"$message" | Should Be $__FILL_ME_IN__
+	}
+
+	It "should allocate a new immutable array" {
+        $array = @(1, 2, 3)
+		$message = "nothing to see here"
+		try { $array += 4 } catch { $message = $_ }
+		"$array" | Should Be $__FILL_ME_IN__
+		"$message" | Should Be $__FILL_ME_IN__
+	}
 }
